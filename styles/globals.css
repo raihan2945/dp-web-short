@@ -1,0 +1,61 @@
+
+@font-face {
+  font-family: "Axiforma";
+  src: local("Axiforma"),
+   url("../src/fonts/AXIFORMA-REGULAR.TTF") format("truetype");
+   /* url("/fonts/Axiforma-Bold.ttf") format("ttf"); */
+  font-weight: normal;
+  }
+@font-face {
+  font-family: "AxiformaBold";
+  src: local("AxiformaBold"),
+   url("../src/fonts/Axiforma-Bold.ttf") format("truetype");
+   /* url("/fonts/Axiforma-Bold.ttf") format("ttf"); */
+  font-weight: bold;
+  }
+@font-face {
+  font-family: "AxiformaMedium";
+  src: local("AxiformaMedium"),
+   url("../src/fonts/AXIFORMA-MEDIUM.TTF") format("truetype");
+   /* url("/fonts/Axiforma-Bold.ttf") format("ttf"); */
+  font-weight: bold;
+  }
+html,
+body {
+  padding: 0;
+  margin: 0;
+  /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
+    background-color: #F7F8FA;
+    font-family: 'Axiforma';
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'AxiformaBold';
+}
+h6 {
+  font-family: 'AxiformaMedium';
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
