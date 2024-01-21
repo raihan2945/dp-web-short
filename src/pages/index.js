@@ -1,17 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
-import AboutUs from "../components/AboutUs/AboutUs";
-import EducationAndTarining from "../components/EducationAndTraining/EducationAndTraining";
-import Experience from "../components/Experience/Experience";
 import HeroSection from "../components/Hero/HeroSection";
-import axios, { all } from "axios";
-import Chamber from "../components/Chamber/Chamber";
-import Speciality from "../components/Speciality/Speciality";
-import Gallery from "../components/Gallery/Gallery";
-import VideoGallery from "../components/VideoGallery/VideoGallery";
-import ContactUs from "../components/ContactUs/ContactUs";
-import Footer from "../components/Layout/Header/Footer";
-import Personal from "../components/Personal/Personal";
+import axios from "axios";
 
 export default function Home() {
   const [allData, setAllData] = useState(null);

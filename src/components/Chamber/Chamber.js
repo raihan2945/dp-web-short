@@ -12,9 +12,9 @@ const Chamber = ({ data }) => {
             <h1 className="col-12">Chamber</h1>
             {Array.isArray(data?.Chambers) &&
               data?.Chambers?.length > 0 &&
-              data?.Chambers?.map((item) => {
+              data?.Chambers?.map((item, index) => {
                 return (
-                  <div class="col-lg-6" style={{ marginBottom: "1rem" }}>
+                  <div key={index} class="col-lg-6" style={{ marginBottom: "1rem" }}>
                     <div
                       style={{
                         borderRadius: "5px",
@@ -95,7 +95,7 @@ const Chamber = ({ data }) => {
                             </span>{" "}
                             {item?.AvailableDays?.map((day, index) => {
                               return (
-                                <span style={{ fontSize: ".8rem" }}>
+                                <span key={index} style={{ fontSize: ".8rem" }}>
                                   {index == 0 ? "" : ", "}
                                   {day}
                                 </span>

@@ -103,7 +103,7 @@ const HeroSection = ({ data }) => {
                 {Array.isArray(data?.Educations) &&
                   data?.Educations?.length > 0 &&
                   data?.Educations?.map((s, index) => (
-                    <div style={{ display: "flex", alignItems: "center" }}>
+                    <div key={index} style={{ display: "flex", alignItems: "center" }}>
                       {/* {index !== 0 &&
                       <i
                         class="fas fa-circle"
@@ -289,7 +289,7 @@ const HeroSection = ({ data }) => {
             <div style={{ marginTop: "3rem" }} className="media_links">
               {Array.isArray(data?.MediaLinks) &&
                 data?.MediaLinks?.length > 0 &&
-                data?.MediaLinks?.map((item) => {
+                data?.MediaLinks?.map((item, index) => {
                   let url;
                   if (
                     item?.value.match(/^http?:\/\//i) ||
@@ -303,7 +303,7 @@ const HeroSection = ({ data }) => {
                   //   url = "http://" + item?.value;
                   // }
                   return (
-                    <div className="icon-box">
+                    <div key={index} className="icon-box">
                       <a href={`${url}`}>
                         <i className={`fab fa-${item?.key?.toLowerCase()}`}></i>
                       </a>
