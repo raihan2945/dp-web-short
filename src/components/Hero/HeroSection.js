@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import Modal from "../UI/Modal";
+import moment from "moment";
 
 const HeroSection = ({ data }) => {
   const [modalShow, setModalShow] = useState(false);
@@ -12,7 +13,9 @@ const HeroSection = ({ data }) => {
 
   // console.log("data is : ", data)
 
-  const URL = process.env.BASE_URL || `${origin}`;
+  const URL = "https://drmoslehuddin.com" || `${origin}`;
+  // const URL = process.env.BASE_URL || `${origin}`;
+
   return (
     <>
       <div className="container">
@@ -81,7 +84,7 @@ const HeroSection = ({ data }) => {
                       marginTop: "4px",
                     }}
                   ></i>
-                  <div style={{width:"max-content"}}>
+                  <div style={{ width: "max-content" }}>
                     {Math.round(data?.YearsOfExperience)}
                     {data?.YearsOfExperience && "+ years of experience"}
                   </div>
@@ -94,8 +97,8 @@ const HeroSection = ({ data }) => {
                   display: "flex",
                   gap: ".5rem",
                   alignItems: "center",
-                  flexWrap:"wrap",
-                  marginTop:"1rem"
+                  flexWrap: "wrap",
+                  marginTop: "1rem",
                 }}
               >
                 {Array.isArray(data?.Educations) &&
@@ -112,7 +115,9 @@ const HeroSection = ({ data }) => {
                         }}
                       ></i>
                       } */}
-                      <p style={{ margin: "0rem", width:"max-content" }}>{s.Code} </p>
+                      <p style={{ margin: "0rem", width: "max-content" }}>
+                        {s.Code}{" "}
+                      </p>
                       {index ==
                       Number(
                         Array.isArray(data?.Educations) &&
@@ -199,6 +204,203 @@ const HeroSection = ({ data }) => {
                       <a href={`${url}`}>
                         <i className={`fab fa-${item?.key?.toLowerCase()}`}></i>
                       </a>
+                    </div>
+                  );
+                })}
+            </div>
+
+            <div class="row">
+              <h1 className="col-12">Chamber</h1>
+              {Array.isArray(data?.Chambers) &&
+                data?.Chambers?.length > 0 &&
+                data?.Chambers?.map((item) => {
+                  return (
+                    <div class="col-lg-6" style={{ marginBottom: "1rem" }}>
+                      <div
+                        style={{
+                          borderRadius: "5px",
+                          height: "100%",
+                          border: "1px solid #F0F0F2",
+                        }}
+                        className="rounded-lg md:mb-0 md:py-[1.4375rem] md:px-5"
+                      >
+                        <div
+                          className="icon_section"
+                          style={{
+                            display: "flex",
+                            alignItems: "start",
+                            padding: "1.2rem",
+                            gap: "1.2rem",
+                          }}
+                        >
+                      
+                          <div>
+                            <h6 className="designation">{item.Name}</h6>
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: ".5rem",
+                                padding: ".5rem 0rem",
+                              }}
+                            >
+                              <i
+                                style={{ color: "#919399" }}
+                                class="fas fa-map-marker-alt"
+                              ></i>
+                              <p
+                                className="address"
+                                style={{ fontSize: ".8rem", margin: "0" }}
+                              >
+                                {item.Address}
+                              </p>
+                            </div>
+                            <div>
+                              <span
+                                style={{ color: "#A3A3AA", fontSize: ".8rem" }}
+                              >
+                                Available days :
+                              </span>{" "}
+                              {item?.AvailableDays?.map((day, index) => {
+                                return (
+                                  <span style={{ fontSize: ".8rem" }}>
+                                    {index == 0 ? "" : ", "}
+                                    {day}
+                                  </span>
+                                );
+                              })}
+                            </div>
+                            <div>
+                              <span
+                                style={{ color: "#A3A3AA", fontSize: ".8rem" }}
+                              >
+                                Available time :
+                              </span>{" "}
+                              <span style={{ fontSize: ".8rem" }}>
+                                {moment(
+                                  `${item.AvailableTime.split("-")[0]}}`,
+                                  ["HH:mm"]
+                                ).format("hh:mm a")}
+                              </span>
+                              -
+                              <span style={{ fontSize: ".8rem" }}>
+                                {moment(
+                                  `${item.AvailableTime.split("-")[1]}}`,
+                                  ["HH:mm"]
+                                ).format("hh:mm a")}
+                                {/* {item.AvailableTime.split("-")[1]} */}
+                              </span>
+                            </div>
+                            <div
+                              className="chamber_phone_numbers"
+                              style={{
+                                display: "flex",
+                                justifyContent: "",
+                                gap: "2rem",
+                              }}
+                            >
+                              {item?.AppointmentNumber && (
+                                <a
+                                  style={{ textDecoration: "none" }}
+                                  href={`tel:${item?.AppointmentNumber}`}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      gap: ".5rem",
+                                      marginTop: ".8rem",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        backgroundColor: "#F7F7F7",
+                                        padding: ".5rem",
+                                        borderRadius: "5px",
+                                        height: "35px",
+                                        width: "35px",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                      }}
+                                    >
+                                      <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                    <div style={{}}>
+                                      <p
+                                        style={{
+                                          margin: "0",
+                                          fontSize: ".8rem",
+                                          color: "#919399",
+                                        }}
+                                      >
+                                        Chamber phone number
+                                      </p>
+                                      <p
+                                        style={{
+                                          margin: "0",
+                                          fontSize: ".8rem",
+                                        }}
+                                      >
+                                        {item?.AppointmentNumber}
+                                      </p>
+                                    </div>
+                                  </div>
+                                </a>
+                              )}
+                              {item?.AssistantNumber && (
+                                <a
+                                  style={{ textDecoration: "none" }}
+                                  href={`tel:${item?.AssistantNumber}`}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      gap: ".5rem",
+                                      marginTop: ".8rem",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        backgroundColor: "#F7F7F7",
+                                        padding: ".5rem",
+                                        borderRadius: "5px",
+                                        height: "35px",
+                                        width: "35px",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                      }}
+                                    >
+                                      <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                    <div style={{}}>
+                                      <p
+                                        style={{
+                                          margin: "0",
+                                          fontSize: ".8rem",
+                                          color: "#919399",
+                                        }}
+                                      >
+                                        Assistant
+                                      </p>
+                                      <p
+                                        style={{
+                                          margin: "0",
+                                          fontSize: ".8rem",
+                                        }}
+                                      >
+                                        {item?.AssistantNumber}
+                                      </p>
+                                    </div>
+                                  </div>
+                                </a>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   );
                 })}
