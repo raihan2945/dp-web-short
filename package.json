@@ -1,0 +1,29 @@
+{
+    "name": "dp-web",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+      "dev": "next dev",
+      "build": "next build && next export",
+      "start": "next start",
+      "lint": "next lint"
+    },
+    "dependencies": {
+      "@egjs/react-grid": "^1.15.1",
+      "axios": "^1.2.1",
+      "bootstrap": "^5.3.1",
+      "moment": "^2.29.4",
+      "next": "^13.2.2",
+      "react": "^18.2.0",
+      "react-bootstrap": "^2.7.0",
+      "react-carousel-minimal": "^1.4.1",
+      "react-dom": "^18.2.0",
+      "react-gallery-carousel": "^0.4.0",
+      "react-image-gallery": "^1.2.11",
+      "react-multi-carousel": "^2.8.2"
+    },
+    "devDependencies": {
+      "eslint": "8.46.0",
+      "eslint-config-next": "13.4.12"
+    }
+  }
