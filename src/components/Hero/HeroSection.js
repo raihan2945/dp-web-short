@@ -14,7 +14,7 @@ const HeroSection = ({ data }) => {
   // console.log("data is : ", data)
 
   // const URL = "https://drmoslehuddin.com" || `${origin}`;
-  const URL = process.env.BASE_URL || `${origin}`;
+  const URL = origin
 
   return (
     <>
@@ -59,6 +59,7 @@ const HeroSection = ({ data }) => {
                   ></i>
 
                   <div>
+                    {data?.YearsOfExperience}
                     {data?.YearsOfExperience && "+ years of experience"}
                   </div>
                 </div>
@@ -85,6 +86,7 @@ const HeroSection = ({ data }) => {
                   ></i>
 
                   <div style={{ width: "max-content" }}>
+                    {data?.YearsOfExperience}
                     {data?.YearsOfExperience && "+ years of experience"}
                   </div>
                 </div>
@@ -103,7 +105,10 @@ const HeroSection = ({ data }) => {
                 {Array.isArray(data?.Educations) &&
                   data?.Educations?.length > 0 &&
                   data?.Educations?.map((s, index) => (
-                    <div key={index} style={{ display: "flex", alignItems: "center" }}>
+                    <div
+                      key={index}
+                      style={{ display: "flex", alignItems: "center" }}
+                    >
                       {/* {index !== 0 &&
                       <i
                         class="fas fa-circle"
