@@ -119,8 +119,8 @@ const HeroSection = ({ data }) => {
                         }}
                       ></i>
                       } */}
-                      <p style={{ margin: "0rem", width: "max-content" }}>
-                        {s.Code}{" "}
+                      <p style={{ margin: "0rem", width: "max-content", textTransform:"uppercase" }}>
+                        {s}{" "}
                       </p>
                       {index ==
                       Number(
